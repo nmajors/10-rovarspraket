@@ -151,3 +151,20 @@ export function isPalindrome(word) {
       return false;
     }
 }
+
+
+
+// 1. Add a new function called `min` that accepts two numbers and returns the smaller number. Modify `test.js` to add additional tests to determine if the function works.
+
+export function min(a, b){
+  if (a < b) {
+    return a;
+  }
+  else if (b < a) {
+    return b;
+  }
+}
+
+
+
+// 2. Add a new function called `findMostVowels` that accepts a string and returns the word with the most vowels in the string. You should use your existing `isVowel` to determine if a character is a vowel. Modify `test.js` to add additional tests to determine if the function works.

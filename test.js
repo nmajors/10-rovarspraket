@@ -93,3 +93,18 @@ describe('isPalindrome Function', () => {
 	});
 
 });
+
+describe('min Function', () => {
+
+	it('Should pick the smallest when comparing numbers', (done) => {
+
+    expect(app.min(1, 3)).to.equal(1);
+    expect(app.min(0, 3)).to.equal(0);
+    expect(app.min(3, -10)).to.equal(-10);
+    expect(app.min(-1, -3)).to.equal(-3);
+
+		done();
+	});
+
+
+});
