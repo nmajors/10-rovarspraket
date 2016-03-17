@@ -80,20 +80,7 @@ export function isVowel(char) {
  * return the string "tothohisos isos fofunon".
 
  */
-//
-// export function rovarspraket(input) {
-//   for (var i = 0; i < yourText.length; i++) {
-//     var yourText = str.split("");
-//     var yourLetter = yourText[i];
-//     var isVowel(yourLetter)=your Vowel {
-//       return += letter;
-//     }
-//     else
-//     }
-//
-//     }
-//
-//   }}
+
 export function rovarspraket(input) {
   var inputAsArray = input.split(""); //Find out why split() is not working
   var output = "";
@@ -150,16 +137,17 @@ export function reverse(str) {
  * and false if it isn't.
  */
 
-export function isPalindrome(word){
-    var len = word.length, i=0, result = true;
-    if (len <= 1) return true;
-    while(i != len - i - 1){
-        var start = word.charAt(i),
-        end = word.charAt(len - i - 1);
-        if (start != end){
-            return false;
-        }
-        i++;
+
+
+
+
+
+
+export function isPalindrome(word) {
+  if (word === reverse(word)) {
+    return true;
+  }
+    else {
+      return false;
     }
-    return result;
 }
