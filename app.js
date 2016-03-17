@@ -5,8 +5,17 @@
  * and returns the largest of them. Use the if-then-else construct available in Javascript.
  */
 
-export function max(a, b){
-    // YOUR CODE HERE
+export function max(a, b) {
+  if (typeof a == "string" && typeof b == "number") {
+    return b;
+  } else if (typeof b == "string" && typeof a == "number") {
+    return a;
+  }
+  if (a > b) {
+    return a;
+  } else if (a < b) {
+    return b;
+  }
 }
 
 /**
@@ -16,9 +25,30 @@ export function max(a, b){
  * numbers as arguments and returns the largest of them.
  */
 
-export function maxOfThree(a, b, c){
-    // YOUR CODE HERE
+export function maxOfThree(a, b, c) {
+  if (typeof(a) == "string") {
+    a = -Infinity;
+  }
+  if (typeof(b) == "string") {
+    b = -Infinity;
+  }
+  if (typeof(c) == "string") {
+    c = -Infinity;
+  }
+
+  if ((a > b) && (a > c)) {
+    return a;
+  }
+
+  if ((b > a) && (b > c)) {
+    return b;
+  }
+
+  if ((c > a) && (c > b)) {
+    return c;
+  }
 }
+
 
 /**
  * PART 2
@@ -27,8 +57,16 @@ export function maxOfThree(a, b, c){
  * and returns true if it is a vowel, false otherwise.
  */
 
-export function isVowel(char){
-    // YOUR CODE HERE
+export function isVowel(char) {
+  var vowelArray = ["a", "e", "i", "o", "u", "A", "E", "I", "O", "U"];
+  var isVowel = false;
+  for (var i = 0; i < vowelArray.length; i++) {
+    if (char === vowelArray[i]) {
+      isVowel = true;
+      break;
+    }
+  }
+  return isVowel;
 }
 
 /**
@@ -42,22 +80,43 @@ export function isVowel(char){
  * return the string "tothohisos isos fofunon".
 
  */
-
+//
+// export function rovarspraket(input) {
+//   for (var i = 0; i < yourText.length; i++) {
+//     var yourText = str.split("");
+//     var yourLetter = yourText[i];
+//     var isVowel(yourLetter)=your Vowel {
+//       return += letter;
+//     }
+//     else
+//     }
+//
+//     }
+//
+//   }}
 export function rovarspraket(input) {
-    // YOUR CODE HERE
+  var inputAsArray = input.split(""); //Find out why split() is not working
+  var output = "";
+  for (var i = 0; i < inputAsArray.length; i++) {
+    var letter = inputAsArray[i];
+    if (isNaN(letter)) {
+      if (isVowel(letter) || letter === ' ') {
+        output += letter;
+      } else {
+        output += letter + 'o' + letter;
+      }
+    } else {
+      output += letter;
+    }
+  }
+  return output;
 }
 
-/**
- * Part 4
- *
- * Define a function reverse() that computes
- * the reversal of a string. For example,
- * reverse("skoob") should return the
- * string "books".
- */
-
-export function reverse(str){
-    // YOUR CODE HERE
+export function reverse(str) {
+  var output = "";
+  for (var i = str.length - 1; i >= 0; i--)
+    output += str[i];
+  return output;
 }
 
 /**
@@ -69,8 +128,18 @@ export function reverse(str){
  * i.e. findLongestWord("book dogs") should return "book"
  */
 
-export function findLongestWord(sentence){
-    // YOUR CODE HERE
+
+ export function findLongestWord(sentence) {
+    var str = sentence.split(" ");
+    var longest = 0;
+    var word = null;
+    for (var i = 0; i < str.length; i++) {
+        if (longest < str[i].length) {
+            longest = str[i].length;
+            word = str[i];
+        }
+    }
+    return word;
 }
 
 /**
@@ -81,6 +150,16 @@ export function findLongestWord(sentence){
  * and false if it isn't.
  */
 
- export function isPalindrome(word) {
-   // YOUR CODE HERE
- }
+export function isPalindrome(word){
+    var len = word.length, i=0, result = true;
+    if (len <= 1) return true;
+    while(i != len - i - 1){
+        var start = word.charAt(i),
+        end = word.charAt(len - i - 1);
+        if (start != end){
+            return false;
+        }
+        i++;
+    }
+    return result;
+}
